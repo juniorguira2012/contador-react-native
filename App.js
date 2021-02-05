@@ -9,7 +9,58 @@
 import React, { useState } from 'react'
 import {Text,View,Button,StyleSheet} from 'react-native'
 
-const Contador = () =>{
+const Contador = () => {
+  const [count, setCount] = useState(0);
+  const onPress = () => setCount(prevCount => prevCount + 1);
+
+  return (
+    <View style={styles.container}>
+      
+      <View style={styles.countContainer}>
+        <Text style={styles.contador}>Turno: {count}</Text>
+      </View>
+
+
+      <Button
+        title='Start Conteo'
+        style={styles.button}
+        onPress={onPress}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10,
+    backgroundColor: `darkgrey`,
+    padding: 20,
+    margin: 10,
+  },
+  button: {
+    alignItems: "center",
+    padding: 10,
+   
+  },
+  
+  contador:{
+    fontSize:30,
+    position:'absolute',
+    top:-300,
+    left:30,
+    borderWidth: 2,
+    padding:90,
+    color:"blue"
+  }
+});
+
+export default Contador;
+
+
+
+/*const Contador = () =>{
   const [contador, setContador] = useState(0)
 
 
@@ -54,9 +105,9 @@ const styles = StyleSheet.create({
   contador:{
     fontSize:90,
     position:'absolute',
-    top:100,
-    left:115,
+    top:105,
+    left:125,
   }
 });
 
-export default Contador;
+export default Contador;*/
